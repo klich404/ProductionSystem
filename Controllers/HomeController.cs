@@ -6,27 +6,21 @@ namespace ProductionSystem.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly ProductionSystemContext _db;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ProductionSystemContext db)
         {
-            _logger = logger;
+            _db = db;
         }
 
         public IActionResult Index()
         {
+            ViewBag.Colores = _db.Color;
+            ViewBag.Telas = _db.TipoTelas;
+            ViewBag.MateriasPrimas = _db.MateriaPrima;
+            ViewBag.Prendas = _db.Prenda;
             return View();
         }
 
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
     }
 }

@@ -16,10 +16,10 @@ namespace ProductionSystem.Models
         {
         }
 
-        public virtual DbSet<Color> Colors { get; set; } = null!;
-        public virtual DbSet<Inventario> Inventarios { get; set; } = null!;
-        public virtual DbSet<MateriaPrima> MateriaPrimas { get; set; } = null!;
-        public virtual DbSet<OrdenProduccion> OrdenProduccions { get; set; } = null!;
+        public virtual DbSet<Color> Color { get; set; } = null!;
+        public virtual DbSet<Inventario> Inventario { get; set; } = null!;
+        public virtual DbSet<MateriaPrima> MateriaPrima { get; set; } = null!;
+        public virtual DbSet<OrdenProduccion> OrdenProduccion { get; set; } = null!;
         public virtual DbSet<Prendum> Prenda { get; set; } = null!;
         public virtual DbSet<TipoTela> TipoTelas { get; set; } = null!;
 

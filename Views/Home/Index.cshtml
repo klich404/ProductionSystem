@@ -1,8 +1,88 @@
-﻿@{
+﻿
+@{
     ViewData["Title"] = "Home Page";
 }
+<br />
+<div style="display:flex">
+    <table class="table table-bordered table-striped" style="width:50%">
+        <thead>
+            <tr>
+                <th>
+                    Colores
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var obj in ViewBag.Colores)
+            {
+                <tr>
+                    <td width="150%">
+                        @obj.Nombre
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <table class="table table-bordered table-striped" style="width:50%">
+        <thead>
+            <tr>
+                <th>
+                    Telas
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var obj in ViewBag.Telas)
+            {
+                <tr>
+                    <td width="150%">
+                        @obj.Nombre
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div style="display:flex">
+    <table class="table table-bordered table-striped" style="width:50%">
+        <thead>
+            <tr>
+                <th>
+                    Materias Primas
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var obj in ViewBag.MateriasPrimas)
+            {
+                <tr>
+                    <td width="150%">
+                        @obj.Nombre
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <table class="table table-bordered table-striped" style="width:50%">
+        <thead>
+            <tr>
+                <th>
+                    Prendas
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var obj in ViewBag.Prendas)
+            {
+                <tr>
+                    <td width="150%">
+                        @obj.Nombre
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
 </div>
