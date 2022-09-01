@@ -1,0 +1,16 @@
+﻿@model TipoTela
+
+<form method="post">
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="text-primary">Añadir Tela</h2>
+            <hr />
+        </div>
+        <div class="mb-3">
+            <label asp-for="Nombre"></label>
+            <input asp-for="Nombre" class="form-control" />
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:150px">Añadir</button>
+        <a asp-action="Index" class="btn btn-secondary" style="width:150px">Volver</a>
+    </div>
+</form>

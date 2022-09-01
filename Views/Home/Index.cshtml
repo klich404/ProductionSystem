@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     ViewData["Title"] = "Home Page";
 }
 <br />
@@ -9,6 +8,7 @@
             <tr>
                 <th>
                     Colores
+                    <a asp-action="CreateColor" class="btn btn-primary" style="float:right ">Añadir</a>
                 </th>
             </tr>
         </thead>
@@ -16,7 +16,7 @@
             @foreach(var obj in ViewBag.Colores)
             {
                 <tr>
-                    <td width="150%">
+                    <td width="50%">
                         @obj.Nombre
                     </td>
                 </tr>
@@ -29,6 +29,7 @@
             <tr>
                 <th>
                     Telas
+                    <a asp-action="CreateTela" class="btn btn-primary" style="float:right ">Añadir</a>
                 </th>
             </tr>
         </thead>
@@ -36,7 +37,7 @@
             @foreach(var obj in ViewBag.Telas)
             {
                 <tr>
-                    <td width="150%">
+                    <td width="50%">
                         @obj.Nombre
                     </td>
                 </tr>
@@ -50,7 +51,14 @@
         <thead>
             <tr>
                 <th>
-                    Materias Primas
+                    <p style="margin-bottom:25px">Materias Primas<p/>
+                </th>
+                <th>
+                    <p style="margin-bottom:25px">Color</p>
+                </th>
+                <th>
+                    Tela
+                    <a asp-action="CreateMateriaPrima" class="btn btn-primary" style="float:right ">Añadir</a>
                 </th>
             </tr>
         </thead>
@@ -58,8 +66,22 @@
             @foreach(var obj in ViewBag.MateriasPrimas)
             {
                 <tr>
-                    <td width="150%">
+                    <td width="35%">
                         @obj.Nombre
+                    </td>
+                    <td width="25%">
+                        @foreach (var c in ViewBag.Colores)
+                        {
+                            @if (c.Id == obj.Color)
+                                @c.Nombre
+                        }
+                    </td>
+                    <td width="40%">
+                        @foreach (var t in ViewBag.Telas)
+                        {
+                            @if (t.Id == obj.Tela)
+                                @t.Nombre
+                        }
                     </td>
                 </tr>
             }
@@ -70,7 +92,11 @@
         <thead>
             <tr>
                 <th>
-                    Prendas
+                    <p style="margin-bottom:25px">Prendas</p>
+                </th>
+                <th>
+                    Consumo por unidad
+                    <a asp-action="CreatePrenda" class="btn btn-primary" style="float:right ">Añadir</a>
                 </th>
             </tr>
         </thead>
@@ -78,8 +104,11 @@
             @foreach(var obj in ViewBag.Prendas)
             {
                 <tr>
-                    <td width="150%">
+                    <td width="40%">
                         @obj.Nombre
+                    </td>
+                    <td width="60%">
+                        @obj.ConsumoInvUnd mts
                     </td>
                 </tr>
             }
