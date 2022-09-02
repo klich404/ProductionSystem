@@ -1,0 +1,66 @@
+﻿@model Inventario
+
+<table class="table table-bordered table-striped" style="width:100%">
+    <thead>
+        <tr>
+            <th>
+                <p style="margin-bottom:25px">Materia Prima<p/>
+            </th>
+            <th>
+                <p style="margin-bottom:25px">Color<p/>
+            </th>
+            <th>
+                <p style="margin-bottom:25px">Tela<p/>
+            </th>
+            <th>
+                Cantidad
+                <a asp-action="" class="btn btn-primary" style="float:right ">Añadir</a>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var obj in ViewBag.Inventario)
+        {
+            <tr>
+                <td width="25%">
+                    @foreach (var mp in ViewBag.MateriaPrima)
+                    {
+                        @if (mp.Id == obj.MateriaPrima)
+                        {
+                            @mp.Nombre
+                        }
+                    }
+                </td>
+                <td width="25%">
+                    @foreach (var mp in ViewBag.MateriaPrima)
+                    {
+                        @if (mp.Id == obj.MateriaPrima)
+                        {
+                            @foreach (var c in ViewBag.Colores)
+                            {
+                                @if (mp.Color == c.Id)
+                                    @c.Nombre
+                            }
+                        }
+                    }
+                </td>
+                <td width="25%">
+                    @foreach (var mp in ViewBag.MateriaPrima)
+                    {
+                        @if (mp.Id == obj.MateriaPrima)
+                        {
+                            @foreach (var t in ViewBag.Telas)
+                            {
+                                @if (mp.Tela == t.Id)
+                                    @t.Nombre
+                            }
+                        }
+                    }
+                </td>
+                <td width="25%">
+                    @obj.Cantidad mts
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
