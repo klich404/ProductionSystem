@@ -64,22 +64,13 @@ namespace ProductionSystem.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult CreateMateriaPrima(MateriaPrima obj) //POST
+        public IActionResult CreateMateriaPrima(MateriaPrima obj, string color) //POST
         {
-            foreach (var c in _db.Color)
-            {
-                if (c.Nombre == obj.Color.ToString())
-                {
-                    obj.Color = c.Id;
-                }
-            }
-            foreach (var t in _db.TipoTelas)
-            {
-                if (t.Nombre == obj.Tela.ToString())
-                {
-                    obj.Tela = t.Id;
-                }
-            }
+            System.Diagnostics.Debug.WriteLine("-----------------------------------------------");
+            System.Diagnostics.Debug.WriteLine(color);
+            System.Diagnostics.Debug.WriteLine("-----------------------------------------------");
+            System.Diagnostics.Debug.WriteLine(obj.Color);
+            System.Diagnostics.Debug.WriteLine("-----------------------------------------------");
             _db.MateriaPrima.Add(obj);
             _db.SaveChanges();
             return RedirectToAction("Index");
