@@ -32,19 +32,14 @@ namespace ProductionSystem.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult IngresarInventario(Inventario obj, string materiaPrimaId) //POST
+        public IActionResult IngresarInventario(Inventario obj, string materiaPrima) //POST
         {
-            foreach (var mp in _db.MateriaPrima)
-            {
-
-            }
-
-            System.Diagnostics.Debug.WriteLine(materiaPrimaId);
-            System.Diagnostics.Debug.WriteLine("-------------------------------");
+            string[] mpId = materiaPrima.Split("-");
+            obj.MateriaPrima = Int32.Parse(mpId[mpId.Length - 1]);
 
             _db.Inventario.Add(obj);
             _db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Inventario");
         }
     }
 }

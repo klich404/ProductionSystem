@@ -1,0 +1,93 @@
+﻿@model OrdenProduccion
+
+<table class="table table-bordered table-striped" style="width:100%">
+    <thead>
+        <tr>
+            <th>
+                <p style="margin-bottom:25px">Materias Primas<p/>
+            </th>
+            <th>
+                <p style="margin-bottom:25px">Color</p>
+            </th>
+            <th>
+                <p style="margin-bottom:25px">Tela</p>
+            </th>
+            <th>
+                <p style="margin-bottom:25px">Prenda</p>
+            </th>
+            <th>
+                <p style="margin-bottom:25px">Consumo por unidad</p>
+            </th>
+            <th>
+                Unidades
+                <a asp-action="CreateOrdenProduccion" class="btn btn-primary" style="float:right ">Añadir</a>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var obj in ViewBag.OrdenProduccion)
+        {
+            <tr>
+                <td width="16%">
+                    @foreach (var mp in ViewBag.MateriaPrima)
+                    {
+                        @if (mp.Id == obj.MateriaPrima)
+                            @mp.Nombre
+                    }
+                </td>
+                <td width="14%">
+                    @foreach (var mp in ViewBag.MateriaPrima)
+                    {
+                        @if (mp.Id == obj.MateriaPrima)
+                        {
+                            @foreach (var c in ViewBag.Colores)
+                            {
+                                @if (@mp.Color == c.Id)
+                                {
+                                    @c.Nombre
+                                }
+                            }
+                        }
+                    }
+                </td>
+                <td width="14%">
+                    @foreach (var mp in ViewBag.MateriaPrima)
+                    {
+                        @if (mp.Id == obj.MateriaPrima)
+                        {
+                            @foreach (var t in ViewBag.Telas)
+                            {
+                                @if (@mp.Tela == t.Id)
+                                {
+                                    @t.Nombre
+                                }
+                            }
+                        }
+                    }
+                </td>
+                <td width="14%">
+                    @foreach (var p in ViewBag.Prendas)
+                    {
+                        @if (p.Id == obj.Prenda)
+                        {
+                            @p.Nombre
+                        }
+                    }
+                </td>
+                <td width="18%">
+                    @foreach (var p in ViewBag.Prendas)
+                    {
+                        @if (p.Id == obj.Prenda)
+                        {
+                            @p.ConsumoInvUnd
+                        }
+                    }
+                    mts
+                </td>
+                <td width="20%">
+                    @obj.Unidades
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
