@@ -12,11 +12,18 @@
         </div>
         <div class="mb-3">
             <label asp-for="Color" class="form-label mt-4"></label>
-            <input type="text" name="color" class="form-control" />
+            <select name="color" class="form-select" id="exampleSelect1">
+                <option selected="selected">Elegir Color</option>
+                @foreach (var c in ViewBag.Colores)
+                {
+                    <option>@c.Nombre</option>
+                }
+            </select>
         </div>
         <div class="mb-3">
             <label asp-for="Tela" class="form-label mt-4"></label>
-            <select asp-for="Tela" class="form-select" id="exampleSelect1">
+            <select name="tela" class="form-select" id="exampleSelect1">
+                <option selected="selected">Elegir Tela</option>
                 @foreach (var t in ViewBag.Telas)
                 {
                     <option>@t.Nombre</option>

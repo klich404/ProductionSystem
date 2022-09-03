@@ -1,0 +1,43 @@
+﻿@model Inventario
+
+<form method="post">
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="text-primary">Ingresar Inventario</h2>
+            <hr />
+        </div>
+        <div class="mb-3">
+            <label asp-for="MateriaPrima" class="form-label mt-4"></label>
+            <select name="materiaPrima" class="form-select" id="exampleSelect1">
+                <option selected="selected">Elegir Materia Prima</option>
+                @foreach (var mp in ViewBag.MateriaPrima)
+                {
+                    <option>@mp.Nombre -
+                        @foreach (var c in ViewBag.Colores)
+                        {
+                            @if (c.Id == mp.Color)
+                            {
+                                @c.Nombre
+                            }
+                        }
+                        -
+                        @foreach (var t in ViewBag.Telas)
+                        {
+                            @if (t.Id == mp.Tela)
+                            {
+                                @t.Nombre
+                            }
+                        }
+                    </option>
+
+                }
+            </select>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Cantidad"></label>
+            <input asp-for="Cantidad" class="form-control" />
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:150px">Añadir</button>
+        <a asp-action="Inventario" class="btn btn-secondary" style="width:150px">Volver</a>
+    </div>
+</form>
