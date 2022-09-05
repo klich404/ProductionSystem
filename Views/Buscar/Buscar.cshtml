@@ -1,0 +1,82 @@
+﻿
+<br />
+
+<form method="post">
+    <select name="tela" class="form-select" width="75%" id="exampleSelect1">
+        <option selected="selected">Elegir Tela</option>
+        @foreach (var t in ViewBag.Telas)
+        {
+            <option>@t.Nombre</option>
+        }
+    </select>
+    <button type="submit" class="btn btn-primary" style="width:150px">Buscar</button>
+</form>
+
+<br /><br />
+
+<h2>Total: @ViewBag.count</h2>
+
+<table class="table table-bordered table-striped" style="width:100%">
+    <thead>
+        <tr>
+            <th>
+                Prenda
+            </th>
+            <th>
+                Tela
+            </th>
+            <th>
+                Color
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var obj in ViewBag.OrdenProduccion)
+        {
+            @for (int i = 0; i < obj.Unidades; i++)
+            {
+                <tr>
+                    @foreach (var p in ViewBag.Prendas)
+                    {
+                        @if (obj.Prenda == p.Id)
+                        {
+                            <td width="33%">
+                                @p.Nombre
+                            </td>
+                        }
+                    }
+                    @foreach (var mp in ViewBag.MateriaPrima)
+                    {
+                        @if (obj.MateriaPrima == mp.Id)
+                        {
+                            @foreach (var t in ViewBag.Telas)
+                            {
+                                @if (mp.Tela == t.Id)
+                                {
+                                    <td width="33%">
+                                        @t.Nombre
+                                    </td>
+                                }
+                            }
+                        }
+                    }
+                    @foreach (var mp in ViewBag.MateriaPrima)
+                    {
+                        @if (obj.MateriaPrima == mp.Id)
+                        {
+                            @foreach (var c in ViewBag.Colores)
+                            {
+                                @if (mp.Color == c.Id)
+                                {
+                                    <td width="33%">
+                                        @c.Nombre
+                                    </td>
+                                }
+                            }
+                        }
+                    }
+                </tr>
+            }
+        }
+    </tbody>
+</table>

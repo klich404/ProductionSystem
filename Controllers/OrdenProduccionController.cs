@@ -50,23 +50,17 @@ namespace ProductionSystem.Controllers
                 {
                     inv.Consecutivo = i.Consecutivo;
                     inv.MateriaPrima = i.Consecutivo;
+                    inv.Cantidad = i.Cantidad;
                 }
             }
             foreach (var p in _db.Prenda)
             {
                 if (p.Id == obj.Prenda)
                 {
-                    System.Diagnostics.Debug.WriteLine(inv.Cantidad);
-                    System.Diagnostics.Debug.WriteLine("------------------------------------");
                     double nuevaCantidad = inv.Cantidad - (obj.Unidades * p.ConsumoInvUnd);
                     inv.Cantidad = nuevaCantidad;
                 }
             }
-
-            System.Diagnostics.Debug.WriteLine(inv.Consecutivo);
-            System.Diagnostics.Debug.WriteLine(inv.MateriaPrima);
-            System.Diagnostics.Debug.WriteLine(inv.Cantidad);
-            System.Diagnostics.Debug.WriteLine("------------------------------------");
 
             _db.Inventario.Update(inv);
             _db.OrdenProduccion.Add(obj);
