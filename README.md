@@ -4,16 +4,16 @@ Production System es un sistema de producción en el cual el usuario podrá admi
 
 
 ## Funcionalidades 📖
-##### Interfaz (Home) para ver los colores, tipos de tela, materias primas y prendas:
+#### Interfaz (Home) para ver los colores, tipos de tela, materias primas y prendas:
 [![home.png](https://i.postimg.cc/jSGG1rNn/home.png)](https://postimg.cc/tsNS1wB9)
 En esta interfaz podrás ver los colores, tipos de tela, materias primas y prendas, también podrás añadir nuevos elementos cliqueando "Añadir":
 [![A-adir.png](https://i.postimg.cc/DZWbNbXn/A-adir.png)](https://postimg.cc/N9cM9FDz)
 
-#### Interfaz (Inventario) para ver el Inventario de las materias prima y sus respectivas cantidades:
+### Interfaz (Inventario) para ver el Inventario de las materias prima y sus respectivas cantidades:
 [![Inventario.png](https://i.postimg.cc/QN1FWDg4/Inventario.png)](https://postimg.cc/3Wr8PPcm)
 También podrás ingresar más inventario cliqueando "Añadir" e insertando la materia prima y la cantidad deseada.
 
-#### Interfaz (Órdenes de Producción) para ver las órdenes de producción:
+### Interfaz (Órdenes de Producción) para ver las órdenes de producción:
 [![Orden-Produccion.png](https://i.postimg.cc/cCnkdHVN/Orden-Produccion.png)](https://postimg.cc/9wcYpWmx)
 Aquí podrás ver las órdenes de producción pasadas, cada una contiene: materia prima, color, tela, prenda, consumo de tela por unidad y cuantas unidades fueron producidas.
 También podrás añadir una nueva orden de producción cliqueando "Añadir", solo tendrás que ingresar la materia prima deseada, la prenda que deseas hacer y la cantidad que quieres, esto descontara los metros de tela usados del inventario.
