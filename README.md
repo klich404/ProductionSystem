@@ -4,7 +4,7 @@ Production System es un sistema de producción en el cual el usuario podrá admi
 
 
 ## Funcionalidades 📖
-#### Interfaz (Home) para ver los colores, tipos de tela, materias primas y prendas:
+### Interfaz (Home) para ver los colores, tipos de tela, materias primas y prendas:
 [![home.png](https://i.postimg.cc/jSGG1rNn/home.png)](https://postimg.cc/tsNS1wB9)
 En esta interfaz podrás ver los colores, tipos de tela, materias primas y prendas, también podrás añadir nuevos elementos cliqueando "Añadir":
 [![A-adir.png](https://i.postimg.cc/DZWbNbXn/A-adir.png)](https://postimg.cc/N9cM9FDz)
