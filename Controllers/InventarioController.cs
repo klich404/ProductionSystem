@@ -12,7 +12,7 @@ namespace ProductionSystem.Controllers
             _db = db;
         }
 
-        public IActionResult Inventario() //carga la informacion de las tablas hacia la vista Index
+        public IActionResult Inventario() //GET: carga la informacion de las tablas hacia la vista Inventario
         {
             ViewBag.Colores = _db.Color.ToList();
             ViewBag.Telas = _db.TipoTelas.ToList();
@@ -21,7 +21,7 @@ namespace ProductionSystem.Controllers
             return View();
         }
 
-        public IActionResult IngresarInventario() //GET
+        public IActionResult IngresarInventario() //GET: carga la informacion de las tablas hacia la vista IngresarInventario
         {
             ViewBag.Colores = _db.Color.ToList();
             ViewBag.Telas = _db.TipoTelas.ToList();
@@ -32,10 +32,10 @@ namespace ProductionSystem.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult IngresarInventario(Inventario obj, string materiaPrima) //POST
+        public IActionResult IngresarInventario(Inventario obj, string materiaPrima) //POST: crea un nuevo objeto Inventario en _db
         {
-            string[] mpId = materiaPrima.Split("-");
-            obj.MateriaPrima = Int32.Parse(mpId[mpId.Length - 1]);
+            string[] mpId = materiaPrima.Split("-"); //Splitea ("-") la casilla seleccionada en materiaprima
+            obj.MateriaPrima = Int32.Parse(mpId[mpId.Length - 1]); //agarra el ulitmo elemento que representa el id de la materia prima
 
             _db.Inventario.Add(obj);
             _db.SaveChanges();

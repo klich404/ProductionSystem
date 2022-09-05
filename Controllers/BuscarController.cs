@@ -12,7 +12,7 @@ namespace ProductionSystem.Controllers
             _db = db;
         }
 
-        public IActionResult Buscar()
+        public IActionResult Buscar() //GET: carga la informacion de las tablas hacia la vista Buscar
         {
             ViewBag.Colores = _db.Color.ToList();
             ViewBag.Prendas = _db.Prenda.ToList();
@@ -21,7 +21,7 @@ namespace ProductionSystem.Controllers
             ViewBag.OrdenProduccion = _db.OrdenProduccion.ToList();
 
             var c = 0;
-            foreach (var obj in ViewBag.OrdenProduccion)
+            foreach (var obj in ViewBag.OrdenProduccion) //GET: cuenta la cantidad de prendas totales producidas
             {
                 for (int i = 0; i < obj.Unidades; i++)
                 {
@@ -34,12 +34,12 @@ namespace ProductionSystem.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Buscar(string tela)
+        public IActionResult Buscar(string tela) //POST: Envia el nombre de la tela a la vista BuscarTela
         {
             return RedirectToAction("BuscarTela", "Buscar", new { data = tela });
         }
 
-        public IActionResult BuscarTela(string data)
+        public IActionResult BuscarTela(string data) //GET: carga la informacion de las tablas hacia la vista BuscarTela
         {
             ViewBag.tel = data;
             ViewBag.Colores = _db.Color.ToList();
@@ -49,6 +49,7 @@ namespace ProductionSystem.Controllers
             ViewBag.OrdenProduccion = _db.OrdenProduccion.ToList();
 
             var c = 0;
+            //Cuenta la cantidad de prendas con una tela en especifico
             foreach(var obj in ViewBag.OrdenProduccion)
                 for(int i = 0; i < obj.Unidades; i++)
                 {
