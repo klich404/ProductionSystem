@@ -25,4 +25,4 @@ En esta interfaz puedes ver de manera individual cada prenda producida con su te
 
 
 ## Autor ✒️
-**Carlos Cruz Zuluaga** - [klich404](https://github.com/klich404)
+**Carlos Cruz** - [klich404](https://github.com/klich404)
